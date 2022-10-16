@@ -47,14 +47,14 @@ class _UpdateDataState extends State<UpdateData> {
                           margin: const EdgeInsets.all(0),
                           padding: const EdgeInsets.all(0),
                           width: MediaQuery.of(context).size.width / 2.1,
-                          decoration: borderBlack(),
+                          // decoration: borderBlack(),
                           child: Text(titulo, style: TextStyle(fontSize: 24))),
                       Container(
                           margin: const EdgeInsets.all(0),
                           padding: const EdgeInsets.all(0),
                           alignment: Alignment.centerRight,
                           width: MediaQuery.of(context).size.width / 5,
-                          decoration: borderBlack(),
+                          // decoration: borderBlack(),
                           child: Container(
                             height: 50,
                             decoration: BoxDecoration(

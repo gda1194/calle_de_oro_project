@@ -39,7 +39,7 @@ class _NewAccountState extends State<NewAccount> {
                   height: 70,
                   margin: const EdgeInsets.fromLTRB(15, 2, 15, 10),
                   padding: const EdgeInsets.all(0),
-                  decoration: borderBlack(),
+                  // decoration: borderBlack(),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -47,14 +47,14 @@ class _NewAccountState extends State<NewAccount> {
                           margin: const EdgeInsets.all(0),
                           padding: const EdgeInsets.all(0),
                           width: MediaQuery.of(context).size.width / 2.1,
-                          decoration: borderBlack(),
+                          // decoration: borderBlack(),
                           child: Text(titulo, style: TextStyle(fontSize: 24))),
                       Container(
                           margin: const EdgeInsets.all(0),
                           padding: const EdgeInsets.all(0),
                           alignment: Alignment.centerRight,
                           width: MediaQuery.of(context).size.width / 5,
-                          decoration: borderBlack(),
+                          // decoration: borderBlack(),
                           child: Container(
                             height: 50,
                             decoration: BoxDecoration(
