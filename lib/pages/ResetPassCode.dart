@@ -7,17 +7,17 @@ import '../util/util.dart';
 import 'package:icon_decoration/icon_decoration.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class ResetPass extends StatefulWidget {
-  const ResetPass({Key? key}) : super(key: key);
+class ResetPassCode extends StatefulWidget {
+  const ResetPassCode({Key? key}) : super(key: key);
 
   @override
-  State<ResetPass> createState() => _ResetPassState();
+  State<ResetPassCode> createState() => _ResetPassCodeState();
 }
 
-class _ResetPassState extends State<ResetPass> {
+class _ResetPassCodeState extends State<ResetPassCode> {
   String tituloPantalla = "Recuperar Contraseña";
-  String lblEmail = 'Email';
-  String lblsend = "Enviar";
+  String lblEmail = 'Codigo de verificacion';
+  String lblsend = "Validar";
 
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
@@ -56,7 +56,7 @@ class _ResetPassState extends State<ResetPass> {
                     border: OutlineInputBorder(),
                     labelText: lblEmail,
                     filled: true,
-                    prefixIcon: Icon(Icons.email_sharp)),
+                    prefixIcon: Icon(Icons.qr_code_2)),
               ),
             ),
             Container(
@@ -64,7 +64,7 @@ class _ResetPassState extends State<ResetPass> {
                 child: ElevatedButton.icon(
                     onPressed: () {},
                     icon: Icon(
-                      Icons.send,
+                      Icons.send_to_mobile,
                       size: 24.0,
                     ),
                     label: Text(lblsend))),

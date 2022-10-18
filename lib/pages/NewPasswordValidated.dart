@@ -7,20 +7,21 @@ import '../util/util.dart';
 import 'package:icon_decoration/icon_decoration.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class ResetPass extends StatefulWidget {
-  const ResetPass({Key? key}) : super(key: key);
+class NewPasswordValidated extends StatefulWidget {
+  const NewPasswordValidated({Key? key}) : super(key: key);
 
   @override
-  State<ResetPass> createState() => _ResetPassState();
+  State<NewPasswordValidated> createState() => _NewPasswordValidatedState();
 }
 
-class _ResetPassState extends State<ResetPass> {
-  String tituloPantalla = "Recuperar Contraseña";
-  String lblEmail = 'Email';
-  String lblsend = "Enviar";
+class _NewPasswordValidatedState extends State<NewPasswordValidated> {
+  String tituloPantalla = "Nueva Contraseña";
+  String lblPassword = 'Nueva Password';
+  String lblPassword2 = "Confirmar Password";
+  String lblsend = "Actualizar";
 
-  TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
+  TextEditingController password2 = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -46,30 +47,49 @@ class _ResetPassState extends State<ResetPass> {
               ),
             ),
             SizedBox(
-              height: 220,
+              height: 160,
             ),
             Container(
               padding: const EdgeInsets.fromLTRB(10, 5, 10, 0),
               child: TextField(
-                controller: email,
+                controller: password,
+                obscureText: true,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: lblEmail,
+                    labelText: lblPassword,
                     filled: true,
-                    prefixIcon: Icon(Icons.email_sharp)),
+                    prefixIcon: Icon(Icons.password)),
               ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              padding: const EdgeInsets.fromLTRB(10, 5, 10, 0),
+              child: TextField(
+                controller: password2,
+                obscureText: true,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: lblPassword2,
+                    filled: true,
+                    prefixIcon: Icon(Icons.password_sharp)),
+              ),
+            ),
+            SizedBox(
+              height: 10,
             ),
             Container(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 1),
                 child: ElevatedButton.icon(
                     onPressed: () {},
                     icon: Icon(
-                      Icons.send,
+                      Icons.update,
                       size: 24.0,
                     ),
                     label: Text(lblsend))),
             SizedBox(
-              height: 280,
+              height: 250,
             ),
             Container(
                 margin: const EdgeInsets.all(0),
