@@ -4,7 +4,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
-import '../util/util.dart';
+import '../../util/util.dart';
 
 class EnableAccount extends StatefulWidget {
   const EnableAccount({Key? key}) : super(key: key);
