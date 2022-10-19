@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-import '../util/util.dart';
+import '../../util/util.dart';
 
-class NewAccount extends StatefulWidget {
-  const NewAccount({Key? key}) : super(key: key);
+class UpdateData extends StatefulWidget {
+  const UpdateData({Key? key}) : super(key: key);
 
   @override
-  State<NewAccount> createState() => _NewAccountState();
+  State<UpdateData> createState() => _UpdateDataState();
 }
 
-class _NewAccountState extends State<NewAccount> {
-  String titulo = "CREAR CUENTA";
+class _UpdateDataState extends State<UpdateData> {
+  String titulo = "Modificar Datos";
 
   String lblFirstName = "Nombre";
   String lblLastName = "Apellido";
@@ -29,9 +29,10 @@ class _NewAccountState extends State<NewAccount> {
   TextEditingController telefono = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // decoration: borderBlack(),
-      child: Padding(
+    return Scaffold(
+      body: Container(
+        // decoration: borderBlack(),
+        child: Padding(
           padding: const EdgeInsets.all(10),
           child: ListView(
             children: <Widget>[
@@ -39,7 +40,7 @@ class _NewAccountState extends State<NewAccount> {
                   height: 70,
                   margin: const EdgeInsets.fromLTRB(15, 2, 15, 10),
                   padding: const EdgeInsets.all(0),
-                  // decoration: borderBlack(),
+                  decoration: borderBlack(),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -189,13 +190,15 @@ class _NewAccountState extends State<NewAccount> {
                   margin: const EdgeInsets.fromLTRB(10, 20, 10, 0),
                   padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
                   child: ElevatedButton(
-                    child: const Text('REGISTRARSE'),
+                    child: const Text('Guardar Cambios'),
                     onPressed: () {
-                      //
+                      Navigator.pop(context);
                     },
                   )),
             ],
-          )),
+          ),
+        ),
+      ),
     );
   }
 }

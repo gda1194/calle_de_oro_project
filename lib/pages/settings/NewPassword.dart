@@ -22,9 +22,10 @@ class _NewPasswordState extends State<NewPassword> {
   TextEditingController newPassConfirmation = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // decoration: borderBlack(),
-      child: Padding(
+    return Scaffold(
+      body: Container(
+        // decoration: borderBlack(),
+        child: Padding(
           padding: const EdgeInsets.all(10),
           child: ListView(
             children: <Widget>[
@@ -91,11 +92,13 @@ class _NewPasswordState extends State<NewPassword> {
                   child: ElevatedButton(
                     child: const Text('ACTUALIZAR CONTRASEÑA'),
                     onPressed: () {
-                      //
+                     Navigator.pop(context);
                     },
                   )),
             ],
-          )),
+          ),
+        ),
+      ),
     );
   }
 }

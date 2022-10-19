@@ -5,7 +5,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
-import '../util/json/ConfigApp.dart';
+import '../../util/json/ConfigApp.dart';
 
 class ConfigApp extends StatefulWidget {
   const ConfigApp({Key? key}) : super(key: key);
@@ -21,7 +21,7 @@ class _ConfigAppState extends State<ConfigApp> {
   TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Scaffold( body: Container(
       // decoration: borderBlack(),
       margin: const EdgeInsets.all(0),
       padding: const EdgeInsets.all(0),
@@ -56,7 +56,7 @@ class _ConfigAppState extends State<ConfigApp> {
             child: contenidoListView(),
           )
         ],
-      ),
+      ),),
     );
   }
 
