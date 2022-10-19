@@ -5,7 +5,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
-import '../util/json/ConfigApp.dart';
+import '../../util/json/ConfigApp.dart';
 
 class ConfigApp extends StatefulWidget {
   const ConfigApp({Key? key}) : super(key: key);
