@@ -1,37 +1,37 @@
+// ignore_for_file: unnecessary_new
+
+import 'package:calle_de_oro_project/pages/login/NewAccount.dart';
+import 'package:calle_de_oro_project/pages/login/ResetPass.dart';
+import 'package:calle_de_oro_project/pages/menu/principal.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../util/util.dart';
+import '/../util/util.dart';
 import 'package:icon_decoration/icon_decoration.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+String tituloLogin = "Login";
+String nombreApp = "Calle de Oro";
+String lbllogin = "Ingresar";
+String lblresetPass = "¿Olvidaste tu Contraseña?";
+String resetPass = "Reestablecer Contraseña";
+String lblregister = "¿Ya tienes cuenta?";
+String register = "Registrarse";
+String lblEmail = "Email";
+String lblPassword = "Password";
+String lblCopy = "All rights reserved ®";
+TextEditingController email = TextEditingController();
+TextEditingController password = TextEditingController();
 
-  @override
-  State<Login> createState() => _LoginState();
-}
+class Login extends StatelessWidget {
+  const Login({super.key});
 
-class _LoginState extends State<Login> {
-  String tituloLogin = "Login";
-  String nombreApp = "Calle de Oro";
-  String lbllogin = "Ingresar";
-  String lblresetPass = "¿Olvidaste tu Contraseña?";
-  String resetPass = "Reestablecer Contraseña";
-  String lblregister = "¿Ya tienes cuenta?";
-  String register = "Registrarse";
-  String lblEmail = "Email";
-  String lblPassword = "Password";
-  String lblCopy = "All rights reserved ®";
-
-  TextEditingController email = TextEditingController();
-  TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Padding(
+    return Scaffold(
+      body: Padding(
         padding: const EdgeInsets.all(10),
         child: ListView(
           children: <Widget>[
@@ -108,7 +108,12 @@ class _LoginState extends State<Login> {
             Container(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 1),
                 child: ElevatedButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Principal()));
+                    },
                     icon: Icon(
                       Icons.login_sharp,
                       size: 24.0,
@@ -116,6 +121,7 @@ class _LoginState extends State<Login> {
                     label: Text(lbllogin))),
             Container(
               height: 20,
+              width: 50,
               margin: const EdgeInsets.fromLTRB(15, 2, 15, 10),
               padding: const EdgeInsets.all(0),
               child: Row(
@@ -145,11 +151,17 @@ class _LoginState extends State<Login> {
                       child: new InkWell(
                           child: new Text(
                             resetPass,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: Colors.red,
                                 decoration: TextDecoration.underline),
                           ),
-                          onTap: () => {}))
+                          onTap: () => {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const ResetPass()))
+                              }))
                 ],
               ),
             ),
@@ -172,7 +184,12 @@ class _LoginState extends State<Login> {
             Container(
                 padding: EdgeInsets.symmetric(horizontal: 100, vertical: 1),
                 child: ElevatedButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => NewAccount()));
+                    },
                     icon: Icon(
                       Icons.login_sharp,
                       size: 24.0,

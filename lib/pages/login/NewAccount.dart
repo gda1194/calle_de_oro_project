@@ -5,6 +5,21 @@ import 'package:flutter/src/widgets/framework.dart';
 
 import '../../util/util.dart';
 
+String titulo = "CREAR CUENTA";
+
+String lblFirstName = "Nombre";
+String lblLastName = "Apellido";
+String lblEmail = "Email";
+String lblTelefono = "Telefono";
+String lblFechaNacimiento = "Fecha nacimiento";
+String lblDireccion = "Direccion";
+String lblPuntoReferencia = "Punto de referencia";
+
+TextEditingController firstName = TextEditingController();
+TextEditingController lastName = TextEditingController();
+TextEditingController email = TextEditingController();
+TextEditingController telefono = TextEditingController();
+
 class NewAccount extends StatefulWidget {
   const NewAccount({Key? key}) : super(key: key);
 
@@ -13,25 +28,12 @@ class NewAccount extends StatefulWidget {
 }
 
 class _NewAccountState extends State<NewAccount> {
-  String titulo = "CREAR CUENTA";
-
-  String lblFirstName = "Nombre";
-  String lblLastName = "Apellido";
-  String lblEmail = "Email";
-  String lblTelefono = "Telefono";
-  String lblFechaNacimiento = "Fecha nacimiento";
-  String lblDireccion = "Direccion";
-  String lblPuntoReferencia = "Punto de referencia";
-
-  TextEditingController firstName = TextEditingController();
-  TextEditingController lastName = TextEditingController();
-  TextEditingController email = TextEditingController();
-  TextEditingController telefono = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // decoration: borderBlack(),
-      child: Padding(
+    return Scaffold(
+      body: Container(
+        // decoration: borderBlack(),
+        child: Padding(
           padding: const EdgeInsets.all(10),
           child: ListView(
             children: <Widget>[
@@ -191,11 +193,13 @@ class _NewAccountState extends State<NewAccount> {
                   child: ElevatedButton(
                     child: const Text('REGISTRARSE'),
                     onPressed: () {
-                      //
+                      Navigator.pop(context);
                     },
                   )),
             ],
-          )),
+          ),
+        ),
+      ),
     );
   }
 }

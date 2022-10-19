@@ -13,7 +13,7 @@ class UpdateData extends StatefulWidget {
 }
 
 class _UpdateDataState extends State<UpdateData> {
-  String titulo = "CREAR CUENTA";
+  String titulo = "Modificar Datos";
 
   String lblFirstName = "Nombre";
   String lblLastName = "Apellido";
@@ -29,9 +29,10 @@ class _UpdateDataState extends State<UpdateData> {
   TextEditingController telefono = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // decoration: borderBlack(),
-      child: Padding(
+    return Scaffold(
+      body: Container(
+        // decoration: borderBlack(),
+        child: Padding(
           padding: const EdgeInsets.all(10),
           child: ListView(
             children: <Widget>[
@@ -189,13 +190,15 @@ class _UpdateDataState extends State<UpdateData> {
                   margin: const EdgeInsets.fromLTRB(10, 20, 10, 0),
                   padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
                   child: ElevatedButton(
-                    child: const Text('REGISTRARSE'),
+                    child: const Text('Guardar Cambios'),
                     onPressed: () {
-                      //
+                      Navigator.pop(context);
                     },
                   )),
             ],
-          )),
+          ),
+        ),
+      ),
     );
   }
 }

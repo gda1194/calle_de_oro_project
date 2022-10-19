@@ -1,5 +1,13 @@
+import 'package:calle_de_oro_project/pages/menu/principal.dart';
 import 'package:flutter/material.dart';
 import 'package:calle_de_oro_project/pages/menu/cards.dart';
+
+import '../settings/ConfigApp.dart';
+import '../settings/EnableAccount.dart';
+import '../settings/NewPassword.dart';
+import '../settings/UpdateData.dart';
+import 'cartShop.dart';
+import 'orders.dart';
 
 class Pay extends StatefulWidget {
   const Pay({super.key});
@@ -14,7 +22,9 @@ class _PayState extends State<Pay> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Cart"),
-        actions: [Icon(Icons.shopping_cart_outlined)],
+        actions: <Widget> [IconButton(onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> const  CartShop()));
+        }, icon: Icon(Icons.shopping_cart_outlined))],
       ),
       drawer: Drawer(
         child: ListView(
@@ -39,7 +49,7 @@ class _PayState extends State<Pay> {
               ),
               title: const Text('Historial de Pedidos'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>const Orders()));
               },
             ),
             Divider(
@@ -49,7 +59,10 @@ class _PayState extends State<Pay> {
               leading: Icon(Icons.account_box_sharp),
               title: const Text('Modificar datos'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const UpdateData()));
               },
             ),
             ListTile(
@@ -58,7 +71,10 @@ class _PayState extends State<Pay> {
               ),
               title: const Text('Cambiar Contraseña'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const NewPassword()));
               },
             ),
             ListTile(
@@ -67,7 +83,10 @@ class _PayState extends State<Pay> {
               ),
               title: const Text('Deshabilitar cuenta'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const EnableAccount()));
               },
             ),
             Divider(
@@ -79,7 +98,8 @@ class _PayState extends State<Pay> {
               ),
               title: const Text('Preferencias'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const ConfigApp()));
               },
             ),
             ListTile(
@@ -120,13 +140,18 @@ class _PayState extends State<Pay> {
               value: "Bitcoins",
               groupValue: "pay",
               onChanged: (ValueKey) {}),
-              btnAceptar()
+              btnAceptar(context)
         ],
       )),
     );
   }
 }
 
-Widget btnAceptar(){
-  return ElevatedButton(onPressed: (){}, child: Text("Aceptar"));
+Widget btnAceptar(BuildContext context) {
+  return ElevatedButton(
+      onPressed: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const Principal()));
+      },
+      child: Text("Confirmar Pedido"));
 }

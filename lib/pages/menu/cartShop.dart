@@ -1,5 +1,12 @@
+import 'package:calle_de_oro_project/pages/menu/pay.dart';
 import 'package:flutter/material.dart';
 import 'package:calle_de_oro_project/pages/menu/cards.dart';
+
+import '../settings/ConfigApp.dart';
+import '../settings/EnableAccount.dart';
+import '../settings/NewPassword.dart';
+import '../settings/UpdateData.dart';
+import 'orders.dart';
 
 class CartShop extends StatefulWidget {
   const CartShop({super.key});
@@ -14,7 +21,9 @@ class _CartShopState extends State<CartShop> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Cart"),
-        actions: [Icon(Icons.shopping_cart_outlined)],
+        actions: <Widget> [IconButton(onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> const  CartShop()));
+        }, icon: Icon(Icons.shopping_cart_outlined))],
       ),
       drawer: Drawer(
         child: ListView(
@@ -39,17 +48,20 @@ class _CartShopState extends State<CartShop> {
               ),
               title: const Text('Historial de Pedidos'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>const Orders()));
               },
             ),
-            Divider(color: Colors.black,),
+            Divider(
+              color: Colors.black,
+            ),
             ListTile(
-              leading: Icon(
-                Icons.account_box_sharp
-              ),
+              leading: Icon(Icons.account_box_sharp),
               title: const Text('Modificar datos'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const UpdateData()));
               },
             ),
             ListTile(
@@ -58,7 +70,10 @@ class _CartShopState extends State<CartShop> {
               ),
               title: const Text('Cambiar Contraseña'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const NewPassword()));
               },
             ),
             ListTile(
@@ -67,17 +82,23 @@ class _CartShopState extends State<CartShop> {
               ),
               title: const Text('Deshabilitar cuenta'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const EnableAccount()));
               },
             ),
-            Divider(color: Colors.black,),
+            Divider(
+              color: Colors.black,
+            ),
             ListTile(
               leading: Icon(
                 Icons.settings,
               ),
               title: const Text('Preferencias'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const ConfigApp()));
               },
             ),
             ListTile(
@@ -94,8 +115,22 @@ class _CartShopState extends State<CartShop> {
       ),
       body: Container(
           child: ListView(
-        children: <Widget>[cardShop_Cart(), cardShop_Cart(), cardShop_Cart(), cardShop_Cart()],
+        children: <Widget>[
+          cardShop_Cart(),
+          cardShop_Cart(),
+          cardShop_Cart(),
+          btnAceptar(context)
+        ],
       )),
     );
   }
+}
+
+Widget btnAceptar(BuildContext context) {
+  return ElevatedButton(
+      onPressed: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const Pay()));
+      },
+      child: Text("Aceptar"));
 }

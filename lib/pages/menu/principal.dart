@@ -1,4 +1,10 @@
 import 'package:calle_de_oro_project/pages/menu/cards.dart';
+import 'package:calle_de_oro_project/pages/menu/cartShop.dart';
+import 'package:calle_de_oro_project/pages/menu/orders.dart';
+import 'package:calle_de_oro_project/pages/settings/ConfigApp.dart';
+import 'package:calle_de_oro_project/pages/settings/EnableAccount.dart';
+import 'package:calle_de_oro_project/pages/settings/NewPassword.dart';
+import 'package:calle_de_oro_project/pages/settings/UpdateData.dart';
 import 'package:flutter/material.dart';
 
 class Principal extends StatefulWidget {
@@ -14,7 +20,9 @@ class _PrincipalState extends State<Principal> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Menú Principal"),
-        actions: [Icon(Icons.shopping_cart_outlined)],
+        actions: <Widget> [IconButton(onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> const  CartShop()));
+        }, icon: Icon(Icons.shopping_cart_outlined))],
       ),
       drawer: Drawer(
         child: ListView(
@@ -39,17 +47,20 @@ class _PrincipalState extends State<Principal> {
               ),
               title: const Text('Historial de Pedidos'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>const Orders()));
               },
             ),
-            Divider(color: Colors.black,),
+            Divider(
+              color: Colors.black,
+            ),
             ListTile(
-              leading: Icon(
-                Icons.account_box_sharp
-              ),
+              leading: Icon(Icons.account_box_sharp),
               title: const Text('Modificar datos'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const UpdateData()));
               },
             ),
             ListTile(
@@ -58,7 +69,10 @@ class _PrincipalState extends State<Principal> {
               ),
               title: const Text('Cambiar Contraseña'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const NewPassword()));
               },
             ),
             ListTile(
@@ -67,17 +81,23 @@ class _PrincipalState extends State<Principal> {
               ),
               title: const Text('Deshabilitar cuenta'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const EnableAccount()));
               },
             ),
-            Divider(color: Colors.black,),
+            Divider(
+              color: Colors.black,
+            ),
             ListTile(
               leading: Icon(
                 Icons.settings,
               ),
               title: const Text('Preferencias'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const ConfigApp()));
               },
             ),
             ListTile(

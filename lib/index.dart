@@ -1,3 +1,6 @@
+/*
+import 'package:calle_de_oro_project/pages/login/Login.dart';
+import 'package:calle_de_oro_project/pages/menu/principal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -13,7 +16,8 @@ class _IndexState extends State<Index> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CartShop(),
+      body: Login(),
     );
   }
 }
+*/

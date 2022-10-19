@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:calle_de_oro_project/pages/menu/cards.dart';
 
+import '../settings/ConfigApp.dart';
+import '../settings/EnableAccount.dart';
+import '../settings/NewPassword.dart';
+import '../settings/UpdateData.dart';
+import 'cartShop.dart';
+
 class Orders extends StatefulWidget {
   const Orders({super.key});
 
@@ -14,9 +20,11 @@ class _OrdersState extends State<Orders> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Orders"),
-        actions: [Icon(Icons.shopping_cart_outlined)],
+        actions: <Widget> [IconButton(onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> const  CartShop()));
+        }, icon: Icon(Icons.shopping_cart_outlined))],
       ),
-      drawer: Drawer(
+     drawer: Drawer(
         child: ListView(
           // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
@@ -39,17 +47,20 @@ class _OrdersState extends State<Orders> {
               ),
               title: const Text('Historial de Pedidos'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>const Orders()));
               },
             ),
-            Divider(color: Colors.black,),
+            Divider(
+              color: Colors.black,
+            ),
             ListTile(
-              leading: Icon(
-                Icons.account_box_sharp
-              ),
+              leading: Icon(Icons.account_box_sharp),
               title: const Text('Modificar datos'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const UpdateData()));
               },
             ),
             ListTile(
@@ -58,7 +69,10 @@ class _OrdersState extends State<Orders> {
               ),
               title: const Text('Cambiar Contraseña'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const NewPassword()));
               },
             ),
             ListTile(
@@ -67,17 +81,23 @@ class _OrdersState extends State<Orders> {
               ),
               title: const Text('Deshabilitar cuenta'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const EnableAccount()));
               },
             ),
-            Divider(color: Colors.black,),
+            Divider(
+              color: Colors.black,
+            ),
             ListTile(
               leading: Icon(
                 Icons.settings,
               ),
               title: const Text('Preferencias'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const ConfigApp()));
               },
             ),
             ListTile(
